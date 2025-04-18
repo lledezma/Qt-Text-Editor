@@ -26,7 +26,6 @@ public:
 
 private:
     Ui::MainWindow *ui;
-    void init();
     void updateStatusBar();
 
     QString m_filename;

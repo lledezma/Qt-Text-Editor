@@ -1,28 +1,21 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    init();
     this->setCentralWidget(ui->editFile);
+    connect(ui->newFile, &QAction::triggered, this, &MainWindow::new_file);
+    connect(ui->openFile, &QAction::triggered, this, &MainWindow::open_file);
+    connect(ui->saveFile, &QAction::triggered, this, &MainWindow::save_file);
+    connect(ui->saveAsFile, &QAction::triggered, this, &MainWindow::save_as_file);
+    new_file();
+    updateStatusBar();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
-}
-
-void MainWindow::init()
-{
-    new_file();
-    updateStatusBar();
-    connect(ui->newFile, &QAction::triggered, this, &MainWindow::new_file);
-    connect(ui->openFile, &QAction::triggered, this, &MainWindow::open_file);
-    connect(ui->saveFile, &QAction::triggered, this, &MainWindow::save_file);
-    connect(ui->saveAsFile, &QAction::triggered, this, &MainWindow::save_as_file);
 }
 
 void MainWindow::updateStatusBar()
@@ -136,4 +129,3 @@ void MainWindow::on_editFile_textChanged()
 {
     m_filesaved = false;
 }
-
