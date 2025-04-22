@@ -27,6 +27,7 @@ public:
 private:
     Ui::MainWindow *ui;
     void updateStatusBar();
+    void add_images();
 
     QString m_filename;
     bool m_filesaved;
@@ -37,6 +38,8 @@ private slots:
     void open_file();
     void save_file();
     void save_as_file();
+
+    void html_text();
 
     // UI Slots
     void on_copyText_triggered();
