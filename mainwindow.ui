@@ -16,7 +16,7 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <widget class="QPlainTextEdit" name="editFile"/>
+     <widget class="QTextEdit" name="editFile"/>
     </item>
    </layout>
   </widget>
@@ -50,8 +50,15 @@
     <addaction name="selectAllText"/>
     <addaction name="selectNoneText"/>
    </widget>
+   <widget class="QMenu" name="menuTools">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+    <addaction name="htmlText"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
+   <addaction name="menuTools"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <widget class="QToolBar" name="toolBar">
@@ -72,6 +79,7 @@
    <addaction name="copyText"/>
    <addaction name="pasteText"/>
    <addaction name="cutText"/>
+   <addaction name="separator"/>
   </widget>
   <action name="newFile">
    <property name="icon">
@@ -137,6 +145,11 @@
   <action name="selectNoneText">
    <property name="text">
     <string>Select None</string>
+   </property>
+  </action>
+  <action name="htmlText">
+   <property name="text">
+    <string>html</string>
    </property>
   </action>
  </widget>
