@@ -9,6 +9,9 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
     connect(ui->openFile, &QAction::triggered, this, &MainWindow::open_file);
     connect(ui->saveFile, &QAction::triggered, this, &MainWindow::save_file);
     connect(ui->saveAsFile, &QAction::triggered, this, &MainWindow::save_as_file);
+    connect(ui->htmlText, &QAction::triggered, this, &MainWindow::html_text);
+
+    add_images();
     new_file();
     updateStatusBar();
 }
@@ -16,6 +19,18 @@ MainWindow::MainWindow(QWidget *parent): QMainWindow(parent), ui(new Ui::MainWin
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::add_images()
+{
+    ui->newFile->setIcon(QIcon(":/resources/images/new.png"));
+    ui->openFile->setIcon(QIcon(":/resources/images/open.png"));
+    ui->saveFile->setIcon(QIcon(":/resources/images/save.png"));
+    ui->saveAsFile->setIcon(QIcon(":/resources/images/saveas.png"));
+
+    ui->copyText->setIcon(QIcon(":/resources/images/copy.png"));
+    ui->pasteText->setIcon(QIcon(":/resources/images/paste.png"));
+    ui->cutText->setIcon(QIcon(":/resources/images/cut.png"));
 }
 
 void MainWindow::updateStatusBar()
@@ -91,6 +106,14 @@ void MainWindow::save_as_file()
     if(m_filename.isEmpty())
         return;
     save_file();
+}
+
+void MainWindow::html_text()
+{
+    QString text("<ul><li style='color: red;'>" + ui->editFile->toPlainText() + "</li></ul>");
+
+    ui->editFile->clear();
+    ui->editFile->insertHtml(text);
 }
 
 // UI Slots
