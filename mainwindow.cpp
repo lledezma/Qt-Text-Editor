@@ -52,7 +52,7 @@ void MainWindow::open_file()
 {
     if(!ui->editFile->toPlainText().isEmpty()){
         QMessageBox::StandardButton reply;
-        reply = QMessageBox::question(this, "Message", "Do you want to save current changes?", QMessageBox::Yes| QMessageBox::No);
+        reply = QMessageBox::question(this, "Message", "Do you want to save current changes?", QMessageBox::Yes|QMessageBox::No);
         reply == QMessageBox::Yes ? save_file() : new_file();
     }
 
