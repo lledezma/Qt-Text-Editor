@@ -119,34 +119,28 @@ void MainWindow::html_text()
 // UI Slots
 void MainWindow::on_copyText_triggered()
 {
-
+    ui->editFile->copy();
 }
-
 
 void MainWindow::on_cutText_triggered()
 {
-
+    ui->editFile->cut();
 }
-
 
 void MainWindow::on_pasteText_triggered()
 {
-
+    ui->editFile->paste();
 }
-
 
 void MainWindow::on_selectAllText_triggered()
 {
-
+    ui->editFile->selectAll();
 }
-
 
 void MainWindow::on_selectNoneText_triggered()
 {
 
 }
-
-
 
 void MainWindow::on_editFile_textChanged()
 {
